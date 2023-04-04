@@ -1,0 +1,4 @@
+Project_Airbnb2/Data/
+**/*.pkl
+**/*.csv
+**/*.pt

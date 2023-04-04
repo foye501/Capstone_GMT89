@@ -1,0 +1,3 @@
+#package
+streamlit=1.15.1
+pydeck=0.8.0
