@@ -12,10 +12,11 @@ import math
 from geopy.distance import geodesic
 from uszipcode import SearchEngine
 import sys
+import requests
 
 class Location_processor():
   def __init__(self):
-    # self.api = overpy.Overpass()
+    self.api = overpy.Overpass()
     self.data_with_zip = pd.read_pickle([(root+'/data_with_zip.pkl') for pp in sys.path for root, dirs, files in os.walk(pp) if 'data_with_zip.pkl' in files][0])
     self.df_sightseeing = pd.read_pickle([(root+'/master_sightseeing.pkl') for pp in sys.path for root, dirs, files in os.walk(pp) if 'master_sightseeing.pkl' in files][0])
     self.RealEstateByZip = pd.read_pickle([(root+'/RealEstateByZip.pkl') for pp in sys.path for root, dirs, files in os.walk(pp) if 'RealEstateByZip.pkl' in files][0])
@@ -42,10 +43,10 @@ class Location_processor():
   def NearbyNum(self, api, lat, lon, query):
     # self.api = overpy.Overpass()
     if lat == None:
+       return None
+    else:
       result = api.query(query.format(lat, lon))
       return len(result.nodes)
-    else:
-      return None
 
   ## Function that find zipcode of inputted address
   def get_zipcode(self,lat, lon):
@@ -65,9 +66,9 @@ class Location_processor():
       return None
     
     if flg == "accommodates":
-        data_temp = data_for_cal[data_for_cal["accommodates"]==num]
+        data_temp = data_for_cal[data_for_cal["accommodates"]==int(num)]
     elif flg == "beds":
-        data_temp = data_for_cal[data_for_cal["beds"]==num]
+        data_temp = data_for_cal[data_for_cal["beds"]==float(num)]
         data_temp = data_temp[(data_temp["latitude"] > lat - 0.01) & (data_temp["latitude"] < lat + 0.01) ]
         data_temp = data_temp[(data_temp["longitude"] > lon - 0.01) & (data_temp["longitude"] < lon + 0.01) ]
     
@@ -103,12 +104,22 @@ class Location_processor():
       if address == None:
         result_dict = {}
       else:
+        url = "https://nominatim.openstreetmap.org/search/" + address + "?format=json"
+        response = requests.get(url).json()
+        if response:
+           lat = float(response[0]["lat"])
+           lon = float(response[0]["lon"])
+        else:
+            lat = 34.028580
+            lon = -118.383470
+            print("The address didn't find latitude and longitude. The system use default address.")
+
         result_dict = {}
-        geolocator = Nominatim(user_agent="gmt89")
-        location = geolocator.geocode(address)
-        print('parsed location: ',location)
-        lat = location.latitude
-        lon = location.longitude
+        # geolocator = Nominatim(user_agent=str(ut))
+        # location = geolocator.geocode(address, timeout=10)
+        print('parsed location: lat = {}, lon = {} '.format(lat,lon))
+        # lat = location.latitude
+        # lon = location.longitude
 
       print('Set queries that are used by the function "NearbyDisAndNum"')
       ## Set queries that are used by the function "NearbyDisAndNum"
