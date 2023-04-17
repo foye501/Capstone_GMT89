@@ -1,4 +1,4 @@
-# Capstone_GM89
+# Capstone_GMT89
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
