@@ -9,6 +9,7 @@ pip install -r requirements.txt
 
 ## usage
 Version 1.0.0
+
 To run the model:
 
 0. Download the [latest version](https://github.com/foye501/Capstone_GM89/releases)
