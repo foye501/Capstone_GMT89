@@ -9,13 +9,13 @@ pip install -r requirements.txt
 
 ## usage
 ### Amenity Pipeline
-![Amenitypipeline](./assets/images/Amenity.png)
+![Amenitypipeline](./Project_Airbnb2/assets/images/Amenity.png)
 
 ### Image Pipeline
-![Imagepipeline](./assets/images/imagepipeline.png)
+![Imagepipeline](./Project_Airbnb2/assets/images/imagepipeline.png)
 
 ### location_pipeline
-![locationpipeline](./assets/images/location_pipeline.png)
+![locationpipeline](./Project_Airbnb2/assets/images/location_pipeline.png)
 
 ### NLP_pipeline
-![NLP_pipeline](./assets/images/NLP_pipeline.png)
+![NLP_pipeline](./Project_Airbnb2/assets/images/NLP_pipeline.png)
