@@ -19,7 +19,7 @@ from ultralytics import YOLO
 
 warnings.filterwarnings('ignore')
 
-listings = pd.read_csv('LA_Airbnb/listings_detailed.csv')
+listings = pd.read_csv('../../Data/LA_Airbnb/listings_detailed.csv')
 listings['clean_price'] = [float(i.replace('$','').replace(',','')) for i in listings['price']]
 room_codes = [i.split('/')[-1] for i in listings['listing_url'].values]
 
@@ -97,7 +97,7 @@ def get_YOLO_results(YOLO_model,room_code,YOLO_classes):
 #### feature extraction on the fly (streaming)
 saving_batch_size = 100
 feature_list = []
-for room_count,room_code in tqdm(enumerate(room_codes), total=len(room_codes)):
+for room_count,room_code in tqdm(enumerate(room_codes[:20]), total=len(room_codes[:20])):
 
     try: ### make sure things never stop
         ### part 1: donwload
@@ -150,7 +150,7 @@ for room_count,room_code in tqdm(enumerate(room_codes), total=len(room_codes)):
         ### saving by batch
         if (room_count%saving_batch_size==0) and (room_count>5) :
             this_batch_num = int(room_count/saving_batch_size)
-            pickle.dump(feature_list, open(f'LA_extracted_features/{this_batch_num}.pkl','wb'))
+            pickle.dump(feature_list, open(f'LA_extracted_features1/{this_batch_num}.pkl','wb'))
             feature_list=[]
             
     except Exception as e:

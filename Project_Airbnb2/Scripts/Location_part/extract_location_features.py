@@ -35,6 +35,7 @@ def NearbyNum(lat, lon, query):
 ## Function that find zipcode of inputted address
 def get_zipcode(lat, lon):
     search = SearchEngine()
+    RealEstateByZip = pd.read_pickle([(root+'/RealEstateByZip.pkl') for pp in sys.path for root, dirs, files in os.walk(pp) if 'RealEstateByZip.pkl' in files][0])
     result = search.by_coordinates(lat = lat, lng = lon, returns = 1)
     try :
       zip = result[0].zipcode

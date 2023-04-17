@@ -120,6 +120,8 @@ class Location_processor():
         print('parsed location: lat = {}, lon = {} '.format(lat,lon))
         # lat = location.latitude
         # lon = location.longitude
+        result_dict['latitude' ] = lat
+        result_dict['longitude'] = lon
 
       print('Set queries that are used by the function "NearbyDisAndNum"')
       ## Set queries that are used by the function "NearbyDisAndNum"
@@ -211,7 +213,21 @@ class Location_processor():
       df_result = df_result.drop(["Location_bus_stop_500m_dis","Location_bus_stop_500m_num", "Location_bus_stop_1000m_dis",
                                   "Location_bus_stop_1000m_num","Location_station_500m_dis","Location_station_500m_num",
                                   "Location_station_1000m_dis","Location_station_1000m_num"], axis = 1)
-      
+#       df_result = df_result[['Location_latitude', 'Location_longitude', 'Location_supermarket_num',
+#                              'Location_bus_500m_dis', 'Location_bus_500m_num', 'Location_bus_1000m_dis', 
+#                             'Location_bus_1000m_num','Location_station_1000m_dis', 'Location_station_1000m_num',
+#                             'Location_station_500m_dis', 'Location_station_500m_num', 'Location_restaurant_num',
+#                              'Location_cafe_500m_dis', 'Location_cafe_500m_num', 'Location_Hollywood Walk of Fame',
+#                              'Location_Griffith Observatory', 'Location_Universal Studios Hollywood', 'Location_Santa Monica Pier',
+#                              'Location_Angeles Stadium', 'Location_Dodgers Stadium', 'Location_California Science Center',
+#                              'Location_TCL Chinese Theatre', 'Location_Little Tokyo', 'Location_Venice Beach',
+#                              'Location_Norton Simon Museum', 'Location_Melrose Avenue', 'Location_ACMA',
+#                              'Location_Rodeo Drive', 'Location_Santa Monica Promenade', 'Location_Farmers Market',
+#                              'Location_Abbot Kinney Blvd', 'Location_Los Angeles International Airport', 'Location_mean_area_accommodates_price',
+#                              'Location_mean_area_beds_price', 'Location_real_estate', 'Location_transport_most_close_dis',
+#                              'Location_transport_1000m_num', 'Location_transport_500m_num']]
+      df_result[df_result .columns] = np.where(np.isinf(df_result [df_result .columns]), -1, df_result [df_result .columns]) 
+                          
       return df_result 
 
     

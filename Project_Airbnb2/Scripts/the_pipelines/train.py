@@ -16,7 +16,14 @@ sys.path = sys.path+['./utiles/']
 def main():
     ### read features
     data = pd.read_csv('./final_features/LA_extracted_all_features_imputed.csv')
-
+    data = data[
+        (np.log(data['price']+1)>=sorted(np.log(data['price']+1))[int(0.025*len(data))]) &\
+        (np.log(data['price']+1)<=sorted(np.log(data['price']+1))[int(0.975*len(data))])
+        ] ### remove outliers
+    
+    
+    
+    
     from Airbnb_Capstone_Model import My_Airbnb_Capstone_Model
     my_model = My_Airbnb_Capstone_Model()
 
