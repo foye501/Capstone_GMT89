@@ -19,3 +19,12 @@ pip install -r requirements.txt
 
 ### NLP_pipeline
 ![NLP_pipeline](./Project_Airbnb2/assets/images/NLP_pipeline.png)
+
+### Contributing
+
+- Wei Li Tan: Amenities analysis, final report consolidation
+- Yangkang Chen: Image analysis, model consolidation
+- Masato Ando: Location analysis, github
+- Dongyao Wang: Description NLP analysis, Web application
+
+
