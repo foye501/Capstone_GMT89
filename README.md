@@ -25,9 +25,11 @@ GitHub: https://github.com/foye501/Capstone_GMT89
 
 Report: https://docs.google.com/document/d/161fEv0t4Ops9SG5NPMAXZgnTigGPNvgPrR8gCyeM7x0/
 
-Video explanation:
+Video explanation: https://www.youtube.com/playlist?list=PL-Ih8lEqwhvFGjcMphHh4x3e4OoW4smun
 
 Poster:
+
+Medium blog: https://medium.com/@chenyk_80392/beyond-a-single-price-pricing-range-improvement-suggestions-for-new-airbnb-hosts-a33ffa718fbb
 
 Airbnb data source: http://insideairbnb.com/get-the-data/
 
