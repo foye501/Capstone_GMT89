@@ -5,7 +5,7 @@
 - [License](#license)
 
 ## Installation
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ## usage
 Version 1.0.0
@@ -18,6 +18,18 @@ To run the model:
 3. `python train.py`. This will train all five quantile regression LightGBM models, and store them. Other preprocessing like imputation, dimensionality reduction are also involved. 
 4. Go to `../Capstone_app`, run `streamline run Home.py` to launch the web application. You can directly go to our web platform: http://18.205.39.151:8502
 
+### Resources
+Web application: http://18.205.39.151:8502/my_app
+
+GitHub: https://github.com/foye501/Capstone_GMT89
+
+Report: https://docs.google.com/document/d/161fEv0t4Ops9SG5NPMAXZgnTigGPNvgPrR8gCyeM7x0/
+
+Video explanation:
+
+Poster:
+
+Airbnb data source: http://insideairbnb.com/get-the-data/
 
 ### Overall dataflow
 ![Overall_workflow](./Project_Airbnb2/assets/images/Overall_workflow.png)
