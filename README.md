@@ -1,5 +1,5 @@
 # Capstone_GMT89
-- [Project Overview](#Project overview)
+- [Project_Overview](#Project overview)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
